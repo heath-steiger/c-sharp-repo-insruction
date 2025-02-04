@@ -24,9 +24,9 @@ namespace Ch05_Ex
             string choice1 = "y";
             while (choice1 == "y" || choice1 == "Y") {
                 Console.Write("Enter Miles: ");
-                double miles = Convert.ToInt32(double.Parse(Console.ReadLine()));
+                double miles = double.Parse(Console.ReadLine());
                 Console.Write("Enter miles per hour: ");
-                double speed = Convert.ToInt32(double.Parse(Console.ReadLine()));
+                double speed = double.Parse(Console.ReadLine());
                 double time = miles / speed;
                 int hours = (int)time;
                 int minutes = (int)((time - hours) * 60);
@@ -54,6 +54,32 @@ namespace Ch05_Ex
                 Console.WriteLine("Continue ?");
                 choice2 = Console.ReadLine();
             }
+
+
+            // exercise 4
+
+            string choice3 = "y";
+            while (choice3 == "y" || choice3 == "Y") {
+                Console.WriteLine("Welcome to the Change Calculator");
+                
+                Console.Write("\nEnter number of cents (0-99): ");
+                
+                int coins = Int32.Parse(Console.ReadLine());
+                int Q = coins / 25;
+                coins = coins % 25;
+                int D = coins / 10;
+                coins %= 10;
+                int N = coins / 5;
+                int P = coins % 5;
+
+                Console.WriteLine("Quarters:" + Q);
+                Console.WriteLine("Dimes:" + D);
+                Console.WriteLine("Nickels:" + N);
+                Console.WriteLine("\nPennies:" + P);
+                Console.WriteLine("Continue ?");
+                choice3 = Console.ReadLine();
+            }
+
             Console.WriteLine("Bye");
 
 
