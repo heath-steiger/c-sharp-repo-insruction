@@ -20,23 +20,23 @@ namespace project5_3_demo
                 int theNumber = rand.Next(MIN_VAL, MAX_VAL + 1);
                 int count = 0;
                 int guess = 0;
-                Print("I'm thinking of a number from "+MIN_VAL+" to "+MAX_VAL+ ".\n Try to guess it.");
+                Print("I'm thinking of a number from " + MIN_VAL + " to " + MAX_VAL + ".\n Try to guess it.");
                 //Print("** DUBUG: theNumber = " + theNumber);
                 while (guess != theNumber) {
                     guess = GetNumber("\nEnter Number: ");
                     count++;
                     int diff = guess - theNumber;
                     if (diff == 0) {
-                       DisplayWinnerMessage(count);                    
+                        DisplayWinnerMessage(count);
                     }
                     else if (diff < -10) { Print("Way too low! Guess again."); }
-                    
+
                     else if (diff < 0) { Print("Too low! Guess again."); }
-                    
+
                     else if (diff > 10) { Print("Way too high! Guess again."); }
-                    
+
                     else if (diff > 0) { Print("Too high! Guess again."); }
-                    
+
                 }
                 // Prompt choice
                 Print("");
@@ -57,7 +57,7 @@ namespace project5_3_demo
             Print("You got it in " + count + " tries.");
             if (count <= 3) { Print("Great work! You are a mathematical wizard."); }
             else if (count <= 7) { Print("Not too bad! You've got some potential."); }
-            else { Print("What took you so long? Maybe you should take some lessons"); }
+            else { Print("What took you so long? Maybe you should take some lessons."); }
         }
         static void Print(string msg)
         {
@@ -70,13 +70,27 @@ namespace project5_3_demo
             bool success = false;
             while (!success) {
                 Console.Write(prompt);
-                nbr = Int32.Parse(Console.ReadLine());
-                if (nbr >= 1 && nbr <= 100) {
-                    success = true;
+                //was user entry a whole number
+                try {
+                    nbr = Int32.Parse(Console.ReadLine());
                 }
-                else {
-                    Print("Error - entry must be between " +MIN_VAL+" and "+MAX_VAL+".");
+                // catch {
+                // Print("Error - entry must be a whole number.");
+                //continue;
+                // 
+                catch (Exception e) {
+                    Print("Error - entry must be a whole number.");
+                    //Console.Error.WriteLine("e.Message: " + e.Message);
+                    //Console.Error.WriteLine("e.ToString(): " + e.ToSring());
+                    continue;
                 }
+                    if (nbr >= MIN_VAL && nbr <= MAX_VAL) {
+                        success = true;
+                    }
+                    else {
+                        Print("Error - entry must be between " + MIN_VAL + " and " + MAX_VAL + ".");
+                    }
+                
             }
 
             return nbr;
