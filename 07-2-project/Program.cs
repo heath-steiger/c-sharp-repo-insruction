@@ -4,13 +4,12 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Letter Grade Convertor");
-          
+            MyConsole.PrintLine("Welcome to the Letter Grade Convertor");
             string choice = "y";
             while (choice == "y") {
-                Console.Write("Enter numerical grade:");
-                Grade.getLetter(Letter)
-                Console.Write(Grade);
+                int getNumber = MyConsole.PromptInt("\nEnter Grade: ");
+           Grade grade = new Grade(getNumber);
+                MyConsole.PrintLine(grade.GetLetter());
                 Console.Write("Continue (y/n):");
                 choice = Console.ReadLine();
             }

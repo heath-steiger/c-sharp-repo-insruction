@@ -9,7 +9,7 @@
             
             Movie newMovie = new Movie();
             newMovie.Id = 1;
-            newMovie.Title = "Jurassic Wordl Rebirth";
+            newMovie.Title = "Jurassic World Rebirth";
             newMovie.Year = 2025;
             newMovie.Rating = "PG-13";
             newMovie.Director = "Gareth Edwards";

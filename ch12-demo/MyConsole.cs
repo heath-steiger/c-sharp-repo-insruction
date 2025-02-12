@@ -1,4 +1,5 @@
-﻿namespace ch12_demo{
+﻿namespace ch12_demo
+{
     public class MyConsole{
         public static int PromptInt(string prompt)
         {

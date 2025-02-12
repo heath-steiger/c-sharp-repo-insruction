@@ -8,7 +8,6 @@
             Console.WriteLine("Welcome to the Contact List App!");
 
 
-            Contact newContact = new Contact();
             string choice = "y";
             while (choice == "y") {
                 // capture input for contact
@@ -16,20 +15,10 @@
                 string LastName = MyConsole.PromptString("Enter last name:");
                 string Email = MyConsole.PromptString("Enter email: ");
                 string Phone = MyConsole.PromptString("Enter phone:");
-                
-                //store this movie and capture a new one
-                newContact = new Contact(FirstName, LastName, Email, Phone);
-                Contacts.Add(newContact);
-                MyConsole.PrintLine("\n=======================================");
-                MyConsole.PrintLine("=====Current Contact===================");
-                MyConsole.PrintLine("=======================================");
-                foreach (Contact contact in Contacts) {
-                    MyConsole.PrintLine($"Name:              {contact.FirstName + contact.LastName}  ");
-                    MyConsole.PrintLine($"Email Address:     {contact.Email}  ");
-                    MyConsole.PrintLine($"Phone Number:      {contact.Phone}  ");
-                }
-                MyConsole.PrintLine("=======================================\n");
-
+                // create contact instance
+                Contact c = new Contact(FirstName, LastName, Email, Phone);
+                //display contact
+                MyConsole.PrintLine(c.DisplayContact());
                 choice = MyConsole.PromptString("Continue? (y/n): ");
             }
 
