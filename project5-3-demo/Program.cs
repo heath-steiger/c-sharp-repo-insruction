@@ -3,9 +3,7 @@
     internal class Program
     {  static void Main(string[] args)
         {
-            MyConsole.PrintLine("Welcome to the guessing Game!");
-            MyConsole.PrintLine("+++++++++++++++++++++++++++++");
-            MyConsole.PrintLine("");
+           MyConsole.PrintLine(MyConsole.GameDisplay(""));
             string choice = "y";
             while (choice == "y") {
                 Game game = new Game();

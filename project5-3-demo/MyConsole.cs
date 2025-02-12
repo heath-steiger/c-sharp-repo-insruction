@@ -12,6 +12,13 @@
             else { msg += ("\nWhat took you so long? Maybe you should take some lessons."); }
             return msg;
         }
+        public static string GameDisplay(string msg)
+        {
+            MyConsole.PrintLine(msg = "Welcome to the guessing Game!");
+            MyConsole.PrintLine(msg = "+++++++++++++++++++++++++++++");
+            MyConsole.PrintLine(msg ="");
+            return msg;
+        }
         public static void PrintLine(string msg)
         {
             Console.WriteLine(msg);
