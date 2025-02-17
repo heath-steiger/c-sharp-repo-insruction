@@ -20,7 +20,7 @@ namespace _1102Project
             while (choice == "y") {
                 Account a;
                 string action = MyConsole.PromptReqString("Withdrawal or Deposit? (w/d): ", "w", "d");
-                string account = MyConsole.PromptReqString("Checking or Savings? (c/s): ", "c", "d");
+                string account = MyConsole.PromptReqString("Checking or Savings? (c/s): ", "c", "s");
                 decimal amount = MyConsole.PromptDecimal("Amount? ");
                 if (account == "c") {
                     a = ca;
