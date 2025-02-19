@@ -1,4 +1,6 @@
-﻿namespace Hangman.Model
+﻿using ConsoleLibrary;
+
+namespace Hangman.Model
 
 {
     public class HangmanWords
@@ -16,6 +18,7 @@
             Words.Add("horse");
             Words.Add("tunnel");
             Words.Add("hotdog");
+            Words.Add("missisipi");
 
         }
 
@@ -26,17 +29,28 @@
             int Word = rand.Next(Words.Count);
             return Words[Word];
         }
-        public string GetHiddenWord()
+        public string GetHiddenWord(string word)
         {
-            string randomWord = GetRandomWord();
-            string x = "_ ";
-            string letter = "";
-            for (int i = 0; i < randomWord.Length; i++) {
-                  letter += x;
+          
+            MyConsole.PrintLine(word);
+            string hiddenWord = "";
+            foreach (char c in word) {
+                hiddenWord += "_";
             }
-            return letter;
+            
+            return hiddenWord;
         }
+        public void DisplayHiddenWord(string hiddenWord)
+        {
 
+            string display = "";
+            foreach (char c in hiddenWord) {
+                 display += (c + " ");
+            }
+            MyConsole.PrintLine($"Word: {display}");
+        }
+       
+   
 
 
 

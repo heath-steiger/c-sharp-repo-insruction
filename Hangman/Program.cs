@@ -8,24 +8,46 @@ namespace Hangman
         static string[] images = new string[7];
         static void Main(string[] args)
         {
-            HangmanWords hangman = new HangmanWords();
             MyConsole.PrintLine("Welcome to Hangman!");
+            // rules of game
             PopulateImages();
-            MyConsole.PrintLine(hangman.GetRandomWord());
+            HangmanWords hangman = new HangmanWords();
+            string randomWord = hangman.GetRandomWord();
+            string hiddenWord = hangman.GetHiddenWord(randomWord);
+            string letter = "";
+            bool winner = false;
+            int incorrectGuesses = 0;
+            while (incorrectGuesses != 6 && !winner) {
+                MyConsole.PrintLine(GetHangmanImage(incorrectGuesses));
+                hangman.DisplayHiddenWord(hiddenWord);
+                letter = MyConsole.PromptString("Guess a letter: ");
+                char[] charsrandomWord = randomWord.ToCharArray();
+                char[] charsHiddenWord = hiddenWord.ToCharArray();
+                bool letterFound = false;
+                for (int i = 0; i < charsrandomWord.Length; i++) {
+                    char c = charsrandomWord[i];
+                    if (letter.Equals(c.ToString())) {
+                        //MyConsole.PrintLine($"Letter found!");
+                        charsHiddenWord[i] = c;
+                        letterFound = true;
+                    }
+                }
+                hiddenWord = new string(charsHiddenWord);
+                if (!letterFound) {
+                    incorrectGuesses++;
 
-            for (int i = 0; i < images.Length; i++) {
-                MyConsole.PrintLine($"Image{i}");
-                MyConsole.PrintLine(images[i]);
-                MyConsole.PrintLine("=========");
-
+                    MyConsole.PrintLine("Letter not found");
+                }
+                if (hiddenWord.IndexOf('_') == -1) {
+                    winner = true;
+                }
+                hangman.DisplayHiddenWord(hiddenWord);
             }
-            MyConsole.PrintLine();
         }
         static string GetHangmanImage(int incorrectGuesses)
         {
+
             return images[incorrectGuesses];
-
-
         }
         static void PopulateImages()
         {
@@ -37,10 +59,5 @@ namespace Hangman
             images[5] = "_____\n|    |\n|    O\n|   /|\\\n|     \\\n|_______";
             images[6] = "_____\n|    |\n|    O\n|   /|\\\n|   / \\\n|_______";
         }
-        //get random word
-
-        // if guess is correct - print letter
-        // if guess is wrong - get image 7 incorrect guesses
-
     }
 }
