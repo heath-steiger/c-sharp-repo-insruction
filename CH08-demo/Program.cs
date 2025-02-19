@@ -10,7 +10,7 @@
             // p. 231
             //array of strings for names
             string[] names = new string[9];
-            names[0] = "Jim"
+            names[0] = "Jim";
             names[1] = "Andy";
             names[2] = "Nick";
             names[3] = "Chirstian";
