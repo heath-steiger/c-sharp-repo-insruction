@@ -77,8 +77,6 @@ namespace BmdbFileIo
             foreach (Movie m in movies) {
                 if (m.ID == id) {
                     MyConsole.PrintLine("Movie: " + m.ToString());
-
-
                 }
             }
 
@@ -96,8 +94,5 @@ namespace BmdbFileIo
             }
 
         }
-
-
-
     }
 }

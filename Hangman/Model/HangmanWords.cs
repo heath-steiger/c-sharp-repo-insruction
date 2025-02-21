@@ -19,6 +19,14 @@ namespace Hangman.Model
             Words.Add("tunnel");
             Words.Add("hotdog");
             Words.Add("missisipi");
+            Words.Add("cactus");
+            Words.Add("lantern");
+            Words.Add("marble");
+            Words.Add("otter");
+            Words.Add("pancake");
+            Words.Add("shovel");
+            Words.Add("whistle");
+            Words.Add("tornado");
 
         }
 
@@ -32,7 +40,7 @@ namespace Hangman.Model
         public string GetHiddenWord(string word)
         {
           
-            MyConsole.PrintLine(word);
+            
             string hiddenWord = "";
             foreach (char c in word) {
                 hiddenWord += "_";
